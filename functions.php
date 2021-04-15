@@ -84,6 +84,19 @@ function cinderella_register_testimonial() {
     );
     register_post_type( 'testimonial', $args );
 }
+// Add caregoris
+add_action( 'init', 'dealers_taxonomy_parent' );
+    function dealers_taxonomy_parent() {
+        register_taxonomy(
+            'doctors_type',
+            array('doctors'),
+            array(
+            'label' => __( 'Category' ),
+            'rewrite' => array( 'slug' => 'doctors_type' ),
+            'hierarchical' => true,
+        )
+    );
+}
 /*** Register Services CPT ***/
 add_action( 'init', 'cinderella_register_services' );
 function cinderella_register_services() {

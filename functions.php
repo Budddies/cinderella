@@ -84,6 +84,22 @@ function cinderella_register_testimonial() {
     );
     register_post_type( 'testimonial', $args );
 }
+// limited code Custom post type
+function doctors_post_type(){
+    register_post_type('doctors',
+        array(
+        'labels' => array(
+        'name' => __('Doctors'),
+        'singular_name' => __('Doctors'),
+        ),
+        'public' => true,
+        'has_archive' => false,
+        'menu_icon' => 'dashicons-businessperson',
+        'supports' => array('title', 'thumbnail')
+        )
+    );
+}
+add_action('init', 'doctors_post_type');
 // Add caregoris
 add_action( 'init', 'dealers_taxonomy_parent' );
     function dealers_taxonomy_parent() {
